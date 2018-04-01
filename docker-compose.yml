@@ -1,0 +1,13 @@
+version: '3'
+services:
+    websockets:
+        build: .
+        ports:
+            - "8999:8999"
+        environment:
+            - WS_REDIS_HOST=redis
+        depends_on:
+            - redis
+
+    redis:
+        image: "redis"
